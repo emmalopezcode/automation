@@ -38,6 +38,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-console.log('server is running at http://localhost:3000');
+var server = app.listen(3000, () => {
+  let host = server.address().address;
+  let port = server.address().port;
+  console.log(`server is running at http://localhost:${port}`);
+
+})
+
 
 module.exports = app;
